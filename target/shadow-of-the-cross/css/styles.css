@@ -7,6 +7,11 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
     position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
 }
 
 body::before {
@@ -17,7 +22,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-    z-index: 0; /* Ensure the overlay is below the content */
+    z-index: -1; /* Ensure the overlay is below the content */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,27 +43,45 @@ a:hover {
 /* Navigation Bar Styles */
 .navbar {
     background-color: #007bff;
-    overflow: hidden;
     color: white;
-    padding: 10px 0;
-    position: relative;
-    z-index: 1;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and navigation links */
+    z-index: 10; /* Ensure the navbar is above the overlay */
 }
 
-.navbar ul {
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow the logo-container to grow and push navigation to the right */
+}
+
+.logo {
+    height: 40px; /* Adjust logo height as needed */
+    margin-right: 10px; /* Space between logo and site name */
+}
+
+.site-name {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.nav-links {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between; /* Space out items */
     align-items: center; /* Center items vertically */
 }
 
-.navbar ul li {
+.nav-links li {
     margin: 0;
 }
 
-.navbar ul li a {
+.nav-links li a {
     display: block;
     color: white;
     text-decoration: none;
@@ -68,16 +91,23 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 
-.navbar ul li a:hover {
+.nav-links li a:hover {
     background-color: #0056b3;
     border-radius: 5px;
 }
 
-/* Right-aligned login item */
-.navbar ul li.right {
-    margin-left: auto; /* Pushes the login item to the right */
+.nav-links .right {
+    margin-left: auto; /* Pushes the 'Account' link to the right */
 }
 
+/* Full-Width Container for Specific Pages */
+.full-width-container {
+    width: 100%; /* Ensure it takes the full width */
+    margin: 0;   /* Remove margin to align with the edge */
+    padding: 20px; /* Optional: adjust padding as needed */
+}
+
+/* General Container Styles */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -92,61 +122,6 @@ a:hover {
     padding: 20px;
     border-radius: 10px;
     z-index: 1;
-}
-
-/* Media Styles */
-.media-content {
-    margin-top: 20px;
-}
-
-.media-content p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.media-item {
-    margin-bottom: 30px;
-}
-
-.media-item h2 {
-    margin-bottom: 10px;
-}
-
-audio, video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 10px;
-}
-
-/* Contact Page Styles */
-.contact-details, .owner-details {
-    margin-top: 20px;
-}
-
-.contact-details p, .owner-details p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.contact-details a {
-    color: #fcfcfc;
-    text-decoration: none;
-}
-
-.contact-details a:hover {
-    text-decoration: underline;
-}
-
-/* Map Styles */
-.map {
-    margin-top: 30px;
-}
-
-.map iframe {
-    width: 100%;
-    height: 450px;
-    border: 0;
 }
 
 /* Form Styles */
@@ -177,6 +152,10 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Ensure there's space between the button and form fields */
+    text-align: center;
+    text-decoration: none;
 }
 
 button:hover {
@@ -185,34 +164,52 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar ul {
+    .navbar {
         flex-direction: column;
         align-items: center;
     }
 
-    .navbar ul li {
+    .logo-container {
+        margin-bottom: 10px; /* Space between logo/name and navigation items */
+    }
+
+    .logo {
+        height: 30px; /* Adjust logo size for smaller screens */
+        margin-right: 0; /* Remove margin on smaller screens */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
         margin-bottom: 10px;
     }
-
-    .navbar ul li.right {
-        margin-left: 0;
-    }
-}
-/* Register Button Styles */
-.register-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
 }
 
-.register-button:hover {
-    background-color: #0056b3;
+/* Dashboard Section Styles */
+.dashboard-section {
+    background-color: #1e1e1e; /* Dark background for sections */
+    border: 1px solid #333; /* Border around the section */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding inside the section */
+    margin-bottom: 20px; /* Space between sections */
+}
+
+.dashboard-section h1,
+.dashboard-section h2 {
+    margin-top: 0; /* Remove top margin from headings */
+}
+
+.dashboard-section p {
+    margin: 5px 0; /* Space between paragraphs */
+}
+
+/* Focus Styles for Accessibility */
+input:focus, button:focus, a:focus {
+    outline: 2px solid #007bff; /* Highlight focusable elements */
+    outline-offset: 2px;
 }
