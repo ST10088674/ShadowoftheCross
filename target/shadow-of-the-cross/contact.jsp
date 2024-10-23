@@ -16,12 +16,13 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.jsp">Home</a></li>
-            <li><a href="media.jsp">Media</a></li>
-            <li><a href="contact.jsp">Contact</a></li>
-            <li class="right"><a href="dashboard.jsp">Account</a></li>
+        <li><a href="media.jsp">Media</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
+        <li class="right">
+            <a href="login.jsp">Account</a>
         </ul>
     </div>
-    <div class="full-width-container">
+    <div class="centered-content">
         <div class="content">
             <h1>Contact Us</h1>
             
@@ -31,28 +32,13 @@
                 <p><strong>Company Name:</strong> Shadow of the Cross</p>
                 <p><strong>Address:</strong> 1234 Faith Avenue, Suite 100, Inspiration City, IC 56789</p>
                 <p><strong>Phone:</strong> (123) 456-7890</p>
-                <p><strong>Email:</strong> <a href="mailto:contact@shadowofthecross.com">contact@shadowofthecross.com</a></p>
-                <p><strong>Website:</strong> <a href="http://www.shadowofthecross.com" target="_blank">www.shadowofthecross.com</a></p>
+                <p><strong>Email:</strong> contact@shadowofthecross.com</a></p>
             </div>
             
             <!-- Company Owner Section -->
             <div class="owner-details">
                 <h2>Company Owner</h2>
                 <p><strong>Name:</strong> John Doe</p>
-            </div>
-
-            <!-- Google Map Section -->
-            <div class="map">
-                <h2>Our Location</h2>
-                <iframe 
-                    width="100%" 
-                    height="450" 
-                    frameborder="0" 
-                    style="border:0" 
-                    allowfullscreen 
-                    src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=1234+Faith+Avenue,+Inspiration+City,+IC+56789" 
-                    aria-label="Google Map">
-                </iframe>
             </div>
         </div>
     </div>

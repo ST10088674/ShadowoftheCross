@@ -16,12 +16,13 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.jsp">Home</a></li>
-            <li><a href="media.jsp">Media</a></li>
-            <li><a href="contact.jsp">Contact</a></li>
-            <li class="right"><a href="dashboard.jsp">Account</a></li>
+        <li><a href="media.jsp">Media</a></li>
+        <li><a href="contact.jsp">Contact</a></li>
+        <li class="right">
+            <a href="login.jsp">Account</a>
         </ul>
     </div>
-    <div class="full-width-container">
+    <div class="centered-content">
         <div class="content">
             <h1>Media Page</h1>
             <p>This is the media page where you can find different media content such as songs and videos.</p>
