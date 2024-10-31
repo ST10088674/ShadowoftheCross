@@ -1,4 +1,8 @@
-/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Body Styles */
 body {
     background-image: url('../images/Shadow.jpg');
     background-size: cover;
@@ -6,54 +10,77 @@ body {
     background-attachment: fixed;
     color: #fff;
     font-family: Arial, sans-serif;
-    position: relative;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    position: relative;
+    overflow-y: scroll;
 }
 
-/* Faded background effect using the ::before pseudo-element */
+/* Faded Background Overlay */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black overlay */
-    z-index: -1; /* Ensure the overlay is behind all content */
+    width: 100%;
+    height: 200%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
 }
 
-/* Navbar and General Page Content Stays the Same */
-
-/* Logo Container Styles */
-.logo-container {
+/* Main Wrapper to Center Content */
+.main-wrapper {
     display: flex;
+    justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
 }
 
-.logo {
-    height: 40px; /* Adjust logo height as needed */
-    margin-right: 10px; /* Space between logo and site name */
+/* Page Container Styling */
+.page-container {
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    line-height: 1.8;
 }
 
-.site-name {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    white-space: nowrap; /* Prevent text from wrapping */
+/* Text Styling for Main Content */
+.page-container h1 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Navbar Styles */
+.page-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+/* Navbar Styling */
 .navbar {
-    background-color: #0080ff; /* Navbar background */
+    background-color: #003366; /* Darker blue for improved contrast */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #ddd; /* Light bottom border */
+    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container .site-name {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .nav-links {
@@ -65,10 +92,11 @@ body::before {
 
 .nav-links li {
     margin-left: 20px;
+    position: relative;
 }
 
 .nav-links li a {
-    color: #000000; /* Black text for nav links */
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
 }
@@ -77,62 +105,94 @@ body::before {
     text-decoration: underline;
 }
 
-/* Container for Pages */
-.container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Auth Page Styles (for login.jsp & register.jsp) */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #5562d6; /* Blueish background for login/register */
-}
-
-.auth-content {
-    background: #5562d6; /* Light white transparent background */
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-.auth-section {
-    margin-top: 20px;
-}
-
-/* Ensure all text on the login and register pages is dark for better contrast */
-.auth-content h1, .auth-content label, .auth-content p, .auth-content a {
-    color: #333; /* Dark gray color for headings, labels, paragraphs, and links */
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
+/* Dropdown Styles */
+.nav-links .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #006bb3; /* Darkened dropdown */
+    min-width: 100px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    color: #003cff; /* Ensure the input text is also dark */
+    top: 100%;
+    right: 0;
+    z-index: 1000;
 }
 
-/* Button Styles */
-.button {
+.nav-links .dropdown li a {
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-links .dropdown li a:hover {
+    background-color: #0056b3;
+}
+
+.right:hover .dropdown {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('images/hero-background.jpg'); /* Placeholder for a hero image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.main-content h2 {
+    color: #0080ff; /* Brighter blue for subheadings */
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Form and Button Styling */
+.button, .subscribe-button {
     padding: 12px 20px;
     background-color: #007bff;
     color: white;
@@ -140,9 +200,78 @@ body::before {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    font-size: 18px;
+    font-size: 1rem;
+    text-align: center;
 }
 
-.button:hover {
+.button:hover, .subscribe-button:hover {
     background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Contact Form */
+.contact-form {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+.social-media-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-media-links i {
+    font-size: 24px; /* Size of the icons */
+    color: #fff;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-media-links a:hover i {
+    color: #0080ff;
+    transform: scale(1.1);
 }

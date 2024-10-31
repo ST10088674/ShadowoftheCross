@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage.js"></script>
@@ -63,11 +64,19 @@
 </head>
 <body>
     <div class="navbar">
-        <ul>
+        <ul class="nav-links">
             <li><a href="index.jsp">Home</a></li>
             <li><a href="media.jsp">Media</a></li>
             <li><a href="contact.jsp">Contact</a></li>
-            <li class="right"><a href="dashboard.jsp">Account</a></li>
+            <li><a href="aboutus.jsp">About Us</a></li>
+            <!-- Account dropdown structure -->
+            <li class="right">
+                <a href="login.jsp" class="account-link">Account</a>
+                <ul class="dropdown">
+                    <li><a href="dashboard.jsp">Dashboard</a></li>
+                    <li><a href="logout.jsp">Logout</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
     <div class="container">
@@ -90,6 +99,14 @@
             </form>
         </div>
     </div>
+    <footer>
+        <p>Follow our social media pages:.</p>
+        <div class="social-media-links">
+            <a href="https://www.instagram.com/sotc_movement/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@SoTC_Movement" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2024 Shadow of the Cross. All rights reserved.</p>
+    </footer>
 </body>
 </html>
 

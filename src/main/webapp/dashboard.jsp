@@ -7,7 +7,7 @@
     <title>Account Dashboard - Shadow of the Cross</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/dashboard.css"> <!-- Custom CSS for the dashboard page -->
-    <link rel="icon" href="images/Shadow-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Firebase SDKs -->
     <script type="module">
@@ -45,14 +45,21 @@
     <!-- Dashboard Layout -->
     <div class="navbar">
         <div class="logo-container">
-            <img src="images/Shadow.jpg" alt="Logo" class="logo">
             <span class="site-name">Shadow of the Cross</span>
         </div>
         <ul class="nav-links">
             <li><a href="index.jsp">Home</a></li>
             <li><a href="media.jsp">Media</a></li>
             <li><a href="contact.jsp">Contact</a></li>
-            <li class="right"><a href="login.jsp">Account</a></li>
+            <li><a href="aboutus.jsp">About Us</a></li>
+            <!-- Account dropdown structure -->
+            <li class="right">
+                <a href="login.jsp" class="account-link">Account</a>
+                <ul class="dropdown">
+                    <li><a href="dashboard.jsp">Dashboard</a></li>
+                    <li><a href="logout.jsp">Logout</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 
@@ -75,11 +82,6 @@
                 <p>Last login: Just Now</p>
                 <p>Number of Media Items Viewed: 0</p>
             </div>
-            <div class="dashboard-section">
-                <h2>Actions</h2>
-                <a href="updateprofile.jsp" class="button">Update Profile</a>
-                <button class="button" onclick="logout()">Logout</button>
-            </div>
         </div>
     </div>
 
@@ -93,5 +95,13 @@
             document.getElementById('username').textContent = user;  // Display the username
         }
     </script>
+   <footer>
+    <p>Follow our social media pages:.</p>
+    <div class="social-media-links">
+        <a href="https://www.instagram.com/sotc_movement/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@SoTC_Movement" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2024 Shadow of the Cross. All rights reserved.</p>
+</footer>
 </body>
 </html>
