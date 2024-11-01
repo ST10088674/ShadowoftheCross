@@ -1,12 +1,12 @@
 Download VS Code on your VM.
 
 VS Code Extensions needed:
-Debugger for Java
-Extension Pack for Java
-Java
-Java Language Support
-Maven for Java
-Test Runner for Java
+Debugger for Java,
+Extension Pack for Java,
+Java,
+Java Language Support,
+Maven for Java,
+Test Runner for Java,
 
 (If I missed something vs code should tell you that a extension is missing and to install it)
 
